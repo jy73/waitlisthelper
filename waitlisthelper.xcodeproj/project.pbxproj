@@ -11,6 +11,7 @@
 		35EE00C4278A56CB008C2B51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE00C3278A56CB008C2B51 /* ContentView.swift */; };
 		35EE00C6278A56CC008C2B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35EE00C5278A56CC008C2B51 /* Assets.xcassets */; };
 		35EE00C9278A56CC008C2B51 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35EE00C8278A56CC008C2B51 /* Preview Assets.xcassets */; };
+		35EE00D1278AD70D008C2B51 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE00D0278AD70D008C2B51 /* FeedbackModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		35EE00C5278A56CC008C2B51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35EE00C8278A56CC008C2B51 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		35EE00CA278A56CC008C2B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35EE00D0278AD70D008C2B51 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				35EE00C1278A56CB008C2B51 /* waitlisthelperApp.swift */,
 				35EE00C3278A56CB008C2B51 /* ContentView.swift */,
+				35EE00D0278AD70D008C2B51 /* FeedbackModel.swift */,
 				35EE00C5278A56CC008C2B51 /* Assets.xcassets */,
 				35EE00CA278A56CC008C2B51 /* Info.plist */,
 				35EE00C7278A56CC008C2B51 /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35EE00D1278AD70D008C2B51 /* FeedbackModel.swift in Sources */,
 				35EE00C4278A56CB008C2B51 /* ContentView.swift in Sources */,
 				35EE00C2278A56CB008C2B51 /* waitlisthelperApp.swift in Sources */,
 			);
