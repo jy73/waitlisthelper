@@ -31,6 +31,7 @@ struct ContentView: View {
                     Spacer()
                     HStack {
                         Text("Place on Waitlist: \(waitlistPlace, specifier: "%.f")")
+                            .foregroundColor(.black)
                         Spacer()
                     }
                     Slider(value: $waitlistPlace, in: 0...200, step: 1)
@@ -42,6 +43,7 @@ struct ContentView: View {
                             )
                     HStack {
                         Text("Class Size: \(classSize, specifier: "%.f")")
+                            .foregroundColor(.black)
                         Spacer()
                     }
                     Slider(value: $classSize, in: 0...1000, step: 1)
