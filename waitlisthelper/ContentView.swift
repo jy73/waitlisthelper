@@ -15,66 +15,94 @@ struct ContentView: View {
     @State var text = ""
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Image("calculate_background")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-                VStack {
-                    Spacer()
-                    Text("WILL YOU GET OFF THE WAITLIST?")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.black)
-                        .padding()
-                    Spacer()
-                    HStack {
-                        Text("Place on Waitlist: \(waitlistPlace, specifier: "%.f")")
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                    Slider(value: $waitlistPlace, in: 0...200, step: 1)
-                        .padding()
-                        .overlay(
-                                RoundedRectangle(cornerRadius: 15.0)
-                                    .stroke(lineWidth: 2.0)
-                                    .foregroundColor(Color.blue)
-                            )
-                    HStack {
-                        Text("Class Size: \(classSize, specifier: "%.f")")
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                    Slider(value: $classSize, in: 0...1000, step: 1)
-                        .padding()
-                        .overlay(
-                                RoundedRectangle(cornerRadius: 15.0)
-                                    .stroke(lineWidth: 2.0)
-                                    .foregroundColor(Color.blue)
-                            )
-                    NavigationLink(destination: ResultView(prob: $probability, feedback: $text), isActive: $calculate) { EmptyView() } .padding()
-                    
-                    Button("CALCULATE") {
+            NavigationView {
+                TabView {
+                    ZStack {
+                        Image("calculate_background")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .ignoresSafeArea()
+                        VStack {
+                            Spacer()
+                            Text("WILL YOU GET OFF THE WAITLIST?")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.black)
+                                .padding()
+                            Spacer()
+                            HStack {
+                                Text("Place on Waitlist: \(waitlistPlace, specifier: "%.f")")
+                                    .foregroundColor(.black)
+                                Spacer()
+                            }
+                            Slider(value: $waitlistPlace, in: 0...200, step: 1)
+                                .padding()
+                                .overlay(
+                                        RoundedRectangle(cornerRadius: 15.0)
+                                            .stroke(lineWidth: 2.0)
+                                            .foregroundColor(Color.blue)
+                                    )
+                            HStack {
+                                Text("Class Size: \(classSize, specifier: "%.f")")
+                                    .foregroundColor(.black)
+                                Spacer()
+                            }
+                            Slider(value: $classSize, in: 0...1000, step: 1)
+                                .padding()
+                                .overlay(
+                                        RoundedRectangle(cornerRadius: 15.0)
+                                            .stroke(lineWidth: 2.0)
+                                            .foregroundColor(Color.blue)
+                                    )
+                            NavigationLink(destination: ResultView(prob: $probability, feedback: $text), isActive: $calculate) { EmptyView() } .padding()
+                            
+                            Button("CALCULATE") {
+                                
+                                calculateProbability(waitlistPlace: Int(waitlistPlace), classSize: Int(classSize))
+                                text = getFeedbackText()
+                                calculate = true
+                            } .buttonStyle(GrowingButton())
+                            
+                            Spacer()
+                            
+                        } .padding()
                         
-                        calculateProbability(waitlistPlace: Int(waitlistPlace), classSize: Int(classSize))
-                        text = getFeedbackText()
-                        calculate = true
-                    } .buttonStyle(GrowingButton())
-
-//                    NavigationLink(destination: ResultView()) {
-//                                Text("CALCULATE")
-//                    }.simultaneousGesture(TapGesture().onEnded{
-//                        print("test")
-//                    })
-//                                .buttonStyle(GrowingButton())
-                } .padding()
+                    }
+                    .navigationBarTitle("Home")
+                    .navigationBarHidden(true)
+                    .tabItem{
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                    
+                    
+                    ZStack {
+                        Image("calculate_background")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .ignoresSafeArea()
+                        VStack {
+                            HStack {
+                                Text("MY \nCLASSES")
+                                    .font(.system(size: 40, weight: .bold))
+                                    .foregroundColor(Color.black)
+                                    .padding()
+                                Spacer()
+                            } .padding()
+                            
+                            Spacer()
+                            }
+                        
+                    }
+                        .tabItem {
+                            Image(systemName: "person.crop.circle")
+                            Text("Profile")
+                        }
+                    
+                }
                 
             }
-            .navigationBarTitle("Home")
-            .navigationBarHidden(true)
-        }
-        
+                
         }
     func calculateProbability(waitlistPlace: Int, classSize: Int) {
         let tenth = classSize / 10
