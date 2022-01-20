@@ -68,7 +68,7 @@ struct ContentView: View {
                         } .padding()
                         
                     }
-                    .navigationBarTitle("Home")
+                    .navigationBarTitle("")
                     .navigationBarHidden(true)
                     .tabItem{
                         Image(systemName: "house.fill")
